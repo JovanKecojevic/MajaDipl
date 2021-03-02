@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectedFile:File;
-  //maja
+  //majam
 
 
   onFileSelected(event)
