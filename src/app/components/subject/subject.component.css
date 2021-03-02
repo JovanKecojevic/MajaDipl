@@ -1,0 +1,14 @@
+.title
+{
+  text-align: center;
+}
+
+td
+{
+  background-color:transparent;
+}
+
+input[type="file"]
+{
+  visibility: hidden;
+}

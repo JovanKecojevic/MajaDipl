@@ -1,0 +1,545 @@
+<div class=background>
+
+  <div class="container">
+
+    <br/>
+    <br/>
+    <h1 style="text-align: center;font-size: 40px;"> Manage users</h1>
+      Create users:
+      <div *ngFor = "let tp of types">
+        <input type = "radio"
+        name="CreateType"
+        value="{{tp}}"
+        (change) = "radioChangeHandler($event)">
+        {{tp}}
+       </div>
+      <div *ngIf="createStudent()">
+        <br>
+        <form class="clr-form" [formGroup]="registerStForm">
+          <table class="table table-dark">
+            <tr>
+              <td>
+                <span class="userLabel">Username</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerStForm.username" placeholder="username"
+                    formControlName="username" autofocus="autofocus" required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Password</span>
+              </td>
+              <td>
+                <input type="password" class="userInput" name="registerStForm.password" placeholder="password"
+                    formControlName="password" required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Repeat Password</span>
+              </td>
+              <td>
+                <input type="password" class="userInput" name="registerStForm.passwordRep" placeholder="Enter password again"
+                    formControlName="passwordRep" required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+              <span class="userLabel">First Name</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerStForm.firstname" placeholder="firstname"
+                  formControlName="firstname"  required />
+                </td>
+              </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Last Name</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerStForm.lastname" placeholder="lastname"
+                    formControlName="lastname"  required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Index Number</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerStForm.index" placeholder="index"
+                    formControlName="index" required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Type of studies</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerStForm.type" placeholder="type"
+                    formControlName="type"  required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Status</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerStForm.status" placeholder="status"
+                    formControlName="status"  required />
+                  </td>
+                </tr>
+            <tr>
+              <td colspan="2">
+            <div *ngIf="showErrorMessage" class="error active">
+                Please enter all the required fields!
+            </div>
+          </td>
+        </tr>
+            <tr>
+              <td colspan="2">
+                <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="registerStudent()">
+                    Register
+                </button>
+              </td>
+            </tr>
+          </table>
+          </form>
+      </div>
+
+      <div *ngIf="createEmployee()">
+          <br>
+          <form class="clr-form" [formGroup]="registerEmpForm">
+            <table  class="table table-dark">
+              <tr>
+                <td>
+                  <span class="userLabel">Username</span>
+                </td>
+                <td>
+                  <input type="text" class="userInput" name="registerEmpForm.username" placeholder="username"
+                    formControlName="username" autofocus="autofocus" required />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                    <span class="userLabel">Password</span>
+                  </td>
+                <td>
+                  <input type="password" class="userInput" name="registerEmpForm.password" placeholder="Password"
+                      formControlName="password" required />
+                </td>
+              </tr>
+              <tr>
+                <td>
+            <span class="userLabel">Repeat Password</span>
+          </td>
+          <td>
+            <input type="password" class="userInput" name="registerEmpForm.passwordRep" placeholder="Repeat password"
+                formControlName="passwordRep" required />
+              </td>
+            </tr>
+          <tr>
+            <td>
+            <span class="userLabel">First Name</span>
+          </td>
+          <td>
+            <input type="text" class="userInput" name="registerEmpForm.firstname" placeholder="firstname"
+                formControlName="firstname"  required />
+              </td>
+            </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Last Name</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.lastname" placeholder="lastname"
+                  formControlName="lastname"  required />
+                </td>
+              </tr>
+          <tr>
+            <td>
+            <span class="userLabel">Address</span>
+          </td>
+          <td>
+            <input type="text" class="userInput" name="registerEmpForm.address" placeholder="address"
+                formControlName="address"  required />
+              </td>
+            </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Mobile Phone</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.phone" placeholder="phone"
+                  formControlName="phone"  />
+                </td>
+              </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Personal Website Address</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.website" placeholder="website"
+                  formControlName="website"  />
+                </td>
+              </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Personal Information</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.personal" placeholder="personal"
+                  formControlName="personal"  />
+                </td>
+              </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Title</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.title" placeholder="title"
+                  formControlName="title"  required />
+                </td>
+              </tr>
+          <tr>
+            <td>
+              <span class="userLabel">Cabinet Number</span>
+            </td>
+            <td>
+              <input type="text" class="userInput" name="registerEmpForm.cabinet" placeholder="cabinet"
+                  formControlName="cabinet"  required />
+                </td>
+              </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Status</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerEmpForm.status" placeholder="status"
+                  formControlName="status"  required />
+                </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Image name</span>
+              </td>
+              <td>
+                <input type="text" class="userInput" name="registerEmpForm.imagePath" placeholder="status"
+                  formControlName="imagePath"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div *ngIf="showErrorMessage" class="error active">
+                    Please enter all the required fields!
+                </div>
+                </td>
+              </tr>
+            <tr>
+              <td colspan="2">
+              <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="registerEmployee()">
+                  Register
+              </button>
+              </td>
+            </tr>
+          </table>
+      </form>
+      </div>
+      <br>
+      Change users:
+      <div *ngFor = "let tp of typesAlter">
+        <input type = "radio"
+        name="AlterType"
+        value="{{tp}}"
+        (change) = "radioChangeHandlerAlter($event)">
+        {{tp}}
+       </div>
+       <br>
+
+      <div *ngIf = "deleteTypeMethod()">
+        <form class="clr-form" [formGroup]="deleteForm">
+          <table>
+          <div class="userInfo">
+            <span class="userLabel">Delete an user with username:</span>
+            <input type="text" class="userInput" name="deleteForm.username" placeholder="Enter username"
+            formControlName="username" autofocus="autofocus" required />
+          </div>
+
+          <div *ngFor = "let tp of typesDelete">
+            <input type = "radio"
+            name="DeleteType"
+            value="{{tp}}"
+            (change) = "radioChangeHandlerDelete($event)">
+            {{tp}}
+           </div>
+          <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="deleteUser()">
+            Delete
+          </button>
+          </table>
+        </form>
+      </div>
+
+      <div *ngIf = "updateTypeMethod() && !foundUser">
+        <form class="clr-form" [formGroup]="updateForm">
+          <table>
+            <div class="userInfo">
+              <span class="userLabel">Update an user with username:</span>
+              <input type="text" class="userInput" name="deleteForm.username" placeholder="Enter username"
+              formControlName="username" autofocus="autofocus" required />
+            </div>
+
+            <div *ngFor = "let tp of typesUpdate">
+              <input type = "radio"
+              name="UpdateType"
+              value="{{tp}}"
+              (change) = "radioChangeHandlerUpdate($event)">
+              {{tp}}
+            </div>
+            <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="updateUser()">
+              Update
+            </button>
+          </table>
+        </form>
+      </div>
+
+      <div *ngIf = "foundUser">
+        <br>
+        Enter the fields to update the User:
+
+        <div *ngIf = "updateTypeMethodStudent()">
+          <form class="clr-form" [formGroup]="registerStFormUpdate">
+            <table  class="table table-dark">
+
+              <tr>
+                <td>
+                <span class="userLabel">Username</span>
+                </td>
+                <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.username" placeholder="username"
+                    formControlName="username" autofocus="autofocus" required />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="userLabel">Password</span>
+                </td>
+                <td>
+                  <input  style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.password" placeholder="password"
+                    formControlName="password" required />
+                  </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <span class="userLabel">First Name</span>
+                </td>
+                <td>
+                  <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.firstname" placeholder="firstname"
+                      formControlName="firstname"  required />
+                </td>
+              </tr>
+
+
+            <tr>
+                <td>
+                  <span class="userLabel">Last Name</span>
+                </td>
+                <td>
+                  <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.lastname" placeholder="lastname"
+                      formControlName="lastname"  required />
+                </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Index Number</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.index" placeholder="index"
+                    formControlName="index" required />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Type of studies</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.type" placeholder="type"
+                    formControlName="type"  required />
+                  </td>
+                </tr>
+            <tr>
+              <td>
+                <span class="userLabel">Status</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerStFormUpdate.status" placeholder="status"
+                    formControlName="status"  required />
+                  </td>
+                </tr>
+            <tr>
+              <td colspan="2">
+                <div *ngIf="showErrorMessage" class="error active">
+                    Please enter all the required fields!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="putStudent()">
+                    Update Student
+                </button>
+              </td>
+            </tr>
+            </table>
+          </form>
+        </div>
+
+        <div *ngIf = "updateTypeMethodEmployee()">
+          <form class="clr-form" [formGroup]="registerEmpFormUpdate">
+            <table  class="table table-dark">
+              <tr>
+                <td>
+              <span class="userLabel">Username</span>
+            </td>
+            <td>
+            <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.username" placeholder="username"
+                formControlName="username" autofocus="autofocus" required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Password</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="password" class="userInput" name="registerEmpFormUpdate.password" placeholder="Password"
+                    formControlName="password" required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+              <span class="userLabel">First Name</span>
+            </td>
+            <td>
+              <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.firstname" placeholder="firstname"
+                  formControlName="firstname"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Last Name</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.lastname" placeholder="lastname"
+                    formControlName="lastname"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+              <span class="userLabel">Address</span>
+              </td>
+              <td>
+              <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.address" placeholder="address"
+                  formControlName="address"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Mobile Phone</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.phone" placeholder="phone"
+                    formControlName="phone"  />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Personal Website Address</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.website" placeholder="website"
+                    formControlName="website"  />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Personal Information</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.personal" placeholder="personal"
+                    formControlName="personal"  />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Title</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.title" placeholder="title"
+                    formControlName="title"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Cabinet Number:</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.cabinet" placeholder="cabinet"
+                    formControlName="cabinet"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Status:</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.status" placeholder="status"
+                    formControlName="status"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="userLabel">Image name:</span>
+              </td>
+              <td>
+                <input style="width: 100%;" type="text" class="userInput" name="registerEmpFormUpdate.imagePath" placeholder="Image"
+                    formControlName="imagePath"  required />
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan = '2'>
+                <div>
+                    <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="putEmployee()">
+                        Update Employee
+                    </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan = '2'>
+                <div *ngIf="showErrorMessage" class="error active">
+                    Please enter all the required fields!
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+

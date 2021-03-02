@@ -1,0 +1,36 @@
+<div class="container">
+  <br/>
+  <br/>
+  <br/>
+  <h1 style="font-size: 40px;text-align: center;">Welcome to SportVent!</h1>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+    <hr style="width:100%;text-align:left;margin-left:0;color: red;height:5px">
+    <div *ngFor = "let tp of races">
+    <br/>
+				<br/>
+				<br/>
+				<div class="row">
+					<div class="col-md-4">
+						<img src="{{tp.imagePath}}" style="height: 250;width: 100%;">
+					</div>
+					<div class="col-md-8">
+						<div class="py-5 text-white" >
+							<p class="lead"> Race name: {{ tp.name }}</p>
+							<hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+							<p class="lead"> Location: {{ tp.location }} </p>
+							<hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+              <p class="lead"> Date: {{getDateFormat(tp)}} </p>
+							<hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+							<button class="btn btn-danger" (click)="goTo(tp)"> See more about this race!</button>
+						</div>
+					</div>
+				</div>
+				<br/>
+
+				<hr style="width:100%;text-align:left;margin-left:0;color: red;height:5px">
+    </div>
+
+</div>

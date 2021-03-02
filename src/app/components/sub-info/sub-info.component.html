@@ -1,0 +1,120 @@
+<div class = "containter">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavDropdown">
+     <ul class="navbar-nav">
+       <li class="nav-item active">
+         <a class="nav-link" (click)="goTo('subject')">Home</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" (click)="goTo('sub-info')" >Information</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" (click)="goTo('lectures')">Lectures</a>
+       </li>
+
+       <li class="nav-item">
+         <a class="nav-link" (click)="goTo('exercises')">Exercises</a>
+       </li>
+
+       <li class="nav-item">
+         <a class="nav-link" (click)="goTo('questions')">Exam questions</a>
+       </li>
+
+       <li class="nav-item">
+         <a class="nav-link" (click)="goTo('lab')">Lab</a>
+       </li>
+     </ul>
+   </div>
+  </nav>
+   <br/>
+   <br/>
+<div class= "row" style="width: 100%;">
+    <h1 style="text-align: center;font-size: 40px;">Information</h1>
+</div>
+<br/>
+<br/>
+
+  <div *ngFor = "let sub of subject">
+    <div class= "row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">{{sub.code}}</h1>
+    </div>
+    <div class="row" style="width: 100%;">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <table class="table table-dark" style="width:100%">
+          <tr>
+            <td>Name:</td>
+            <td>{{sub.name}}</td>
+          </tr>
+          <tr>
+            <td>Semester:</td>
+            <td>{{sub.semester}}</td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td>{{sub.type}}</td>
+          </tr>
+          <tr>
+            <td>Type of studies:</td>
+            <td>{{sub.studies}}</td>
+          </tr>
+          <tr>
+            <td>Department:</td>
+            <td>{{sub.department}}</td>
+          </tr>
+          <tr>
+            <td>Fond:</td>
+            <td>{{sub.fond}}</td>
+          </tr>
+          <tr>
+            <td>ESPB:</td>
+            <td>{{sub.espb}}</td>
+          </tr>
+          <tr colspan='2'>
+            <td colspan='2' style="width: 100%;">Goal:
+              {{sub.goal}}</td>
+          </tr>
+          <tr>
+            <td>Propositions:</td>
+            <td>{{sub.propositions}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+
+    </div>
+    <br/>
+    <br/>
+    <div class= "row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">Classes</h1>
+    </div>
+    <div class="row" style="width: 100%;">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 ">
+        <table class="table table-dark">
+          <tr>
+            <th style="width:20%">Group:</th>
+            <th style="width:40%">Lecturer:</th>
+            <th style="width:20%">Day:</th>
+            <th style="width:20%">Time:</th>
+          </tr>
+          <tr *ngFor= "let lecture of lectures(sub.code)">
+              <td style="width:20%"> {{lecture.group}} </td>
+              <td style="width:40%"><a style="background-color: transparent;color:dodgerblue" (click)="goToEmp(lecture.username)"> {{ nameOf(lecture.username)}} </a></td>
+              <td style="width:20%"> {{lecture.day}}</td>
+              <td style="width:20%"> {{lecture.time}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <hr style="width:100%;text-align:left;margin-left:0;border-color: blue;">
+    <br/>
+    <br/>
+  </div>
+
+</div>
+

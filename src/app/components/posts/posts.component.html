@@ -1,0 +1,115 @@
+<br>
+<div *ngIf = "competitionsBool()">
+<h1 class = "title">  Competitions: </h1>
+<hr>
+<div *ngFor = "let tp of competitions">
+  <div>
+    <h2>
+      <b>{{tp.title}}</b>
+    </h2>
+    <h4>
+      {{tp.content}}
+    </h4>
+    <h5>
+      <i>
+      {{getDate(tp)}}
+      </i>
+    </h5>
+    <hr>
+  </div>
+</div>
+<br>
+</div>
+<div *ngIf = "conferencesBool()">
+  <h1 class = "title">  Conferences: </h1>
+  <div *ngFor = "let tp of conferences">
+    <div>
+      <h2>
+        <b>{{tp.title}}</b>
+      </h2>
+      <h4>
+        {{tp.content}}
+      </h4>
+      <h5>
+        <i>
+        {{getDate(tp)}}
+        </i>
+      </h5>
+      <hr>
+    </div>
+  </div>
+<br>
+</div>
+<div *ngIf = "internshipsBool()">
+  <h1 class = "title">  Internships: </h1>
+  <div *ngFor = "let tp of internships">
+    <div>
+      <h2>
+        <b>{{tp.title}}</b>
+      </h2>
+      <h4>
+        {{tp.content}}
+      </h4>
+      <h5>
+        <i>
+        {{getDate(tp)}}
+        </i>
+      </h5>
+      <hr>
+    </div>
+  </div>
+<br>
+</div>
+<div *ngIf = "jobsBool()">
+  <h1 class = "title">  Jobs: </h1>
+  <div *ngFor = "let tp of jobs">
+    <div>
+      <h2>
+        <b>{{tp.title}}</b>
+      </h2>
+      <h4>
+        {{tp.content}}
+      </h4>
+      <h5>
+        <i>
+        {{getDate(tp)}}
+        </i>
+      </h5>
+      <hr>
+    </div>
+  </div>
+</div>
+<div *ngIf = "adminLogged()">
+  Create new post:
+  <form class="clr-form" [formGroup]="postForm">
+  Title:
+    <input type="text" class="userInput" name="postForm.title" placeholder="Enter title"
+        formControlName="title" autofocus="autofocus" required />
+    <br>
+  Content:
+    <input type="text" class="userInput" name="postForm.content" placeholder="Enter content"
+        formControlName="content" autofocus="autofocus" required />
+    <br>
+    <br>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder=" Enter the publish date of the post"
+    formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  Select the type of the post:
+  <div *ngFor = "let tp of types">
+    <input type = "radio"
+    name="DeleteType"
+    value="{{tp}}"
+    (change) = "radioChange($event)">
+    {{tp}}
+  </div>
+
+  <br>
+    <button type="submit" class="btn btn-block btn-md btn-primary button" (click)="createPost()">
+      Create Post
+    </button>
+</form>
+</div>

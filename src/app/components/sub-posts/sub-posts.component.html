@@ -1,0 +1,83 @@
+<div class = "background">
+  <div class = "containter">
+  <br/>
+  <br/>
+  <div class= "row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 40px;">Posts</h1>
+  </div>
+  <br/>
+  <br/>
+  <h1 style="text-align: center;font-size: 20px;">Choose the subject:</h1>
+  <br/>
+  <div class="row" style="width: 100%;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)] = "sub_name" style="width: 100%;">
+        <option value="null">Select your option</option>
+        <option *ngFor ="let sub of groups" [value]="sub.code">
+          {{nameOf(sub.code)}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <br/>
+  <div class="row" style="width: 100%;text-align: center;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button class="btn btn-primary" (click)="alter()">Add a post to this subject</button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <br/>
+  <br/>
+  <div *ngIf="checked">
+    <div class= "row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">Create new post</h1>
+    </div>
+    <div class="row" style="width: 100%;">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <form [formGroup]="postForm">
+          <table class="table table-dark" style="width: 100%;">
+            <tr>
+              <td style="font-size: 20px;">Title:</td>
+              <td><input type="text" name="postForm.title" placeholder="Enter title"
+                formControlName="title" autofocus="autofocus" required /></td>
+            </tr>
+            <tr>
+              <td colspan='2' style="font-size: 20px;width: 100%;">Content:
+                <textarea type="text" name="postForm.content" placeholder="Enter content"
+                formControlName="content" autofocus="autofocus" style="width: 100%;height: 100px;color:white" required></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td colspan='2' style="width: 100%; text-align: left;font-size: 20px">
+                Date: &nbsp; &nbsp; &nbsp; &nbsp;
+                <mat-form-field style="color: white;width: 100%;">
+
+                  <input matInput [matDatepicker]="picker" placeholder=" Enter the date of the post"
+                  formControlName="date" style="color: white;width: 100%;">
+                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: white;width: 50%;"></mat-datepicker-toggle>
+                    <mat-datepicker #picker style="color: white;width: 50%;"></mat-datepicker>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td colspan='2' style="width: 100%; text-align: center;">
+                <button type="submit" class="btn btn-primary" (click)="createPost()">
+                  Create Post
+                </button>
+              </td>
+            </tr>
+
+          </table>
+
+        </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  </div>
+</div>
+

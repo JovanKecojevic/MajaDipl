@@ -1,0 +1,66 @@
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  padding: 1%;
+  text-decoration:none;
+  color:white;
+  transition-duration: 0.4s;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.vl {
+  border-left: 6px solid rgb(169, 216, 236);
+  height: 500px;
+}
+
+.opcije {
+  width: 80%;
+  text-align: left;
+}
+
+
+.desno
+{
+  text-align: right;
+}
+
+.proba :hover
+{
+
+  color:black;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  padding: 1%;
+  text-decoration:none;
+  color:black;
+  transition-duration: 0.4s;
+}
+
+a:hover {
+  background-color:#0072a3;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+

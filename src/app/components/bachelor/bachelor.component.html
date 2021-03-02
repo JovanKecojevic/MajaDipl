@@ -1,0 +1,133 @@
+  <div class = "containter" style="justify-content: center;">
+  <br/>
+  <br/>
+  <div class= "row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 40px;">Bachelor Studies</h1>
+  </div>
+  <br/>
+  <br/>
+  <div class= "row" style="width: 100%;text-align: center;">
+    <div class="col-md-4"><button class="btn btn-primary" style="width:55%" (click) = postavi(0)>Software Engineering Subjects</button></div>
+    <div class="col-md-4"><button class="btn btn-primary" style="width:55%" (click) = postavi(1)>RTI Subjects</button></div>
+    <div class="col-md-4"><button class="btn btn-primary" style="width:55%" (click) = postavi(2)>Other Departments Subjects</button></div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+
+  <div *ngIf="si">
+    <div class="row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">Software engineering subjects</h1>
+    </div>
+    <br/>
+      <br/>
+    <div *ngFor = "let sem of semes">
+        <div *ngIf = "checkIfSubjectsSi(sem)">
+          <div class="row" style="width: 100%;">
+            <h1 style="text-align: center;font-size: 30px;">Semester {{sem + 1}}</h1>
+          </div>
+          <div class="row" style="width: 100%;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <table class="table table-dark" style="width: 100%;">
+                <tr>
+                  <th style="width: 50%;text-align:center">Name:</th>
+                  <th style="width: 50%;text-align:center">Subject page:</th>
+                </tr>
+                  <tr *ngFor = "let p of subjectsSemSi[sem]"  style="width: 100%;text-align:center">
+                    <td>
+                      {{p.name}}
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" style="background-color: indigo;" (click) = "goTo(p)"> See this subjects page </button>
+                        <span style="background-color: transparent;">&nbsp;</span>
+                        <button *ngIf = "studentLoged" class="btn btn-primary" (click) = "sub(p)"> Subscribe to this subject! </button>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <br/>
+        </div>
+    </div>
+  </div>
+
+  <div *ngIf="rti">
+    <div class="row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">RTI subjects</h1>
+    </div>
+    <br/>
+      <br/>
+    <div *ngFor = "let sem of semes">
+        <div *ngIf = "checkIfSubjectsRti(sem)">
+          <div class="row" style="width: 100%;">
+            <h1 style="text-align: center;font-size: 30px;">Semester {{sem + 1}}</h1>
+          </div>
+          <div class="row" style="width: 100%;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <table class="table table-dark" style="width: 100%;">
+                <tr>
+                  <th style="width: 50%;text-align:center">Name:</th>
+                  <th style="width: 50%;text-align:center">Subject page:</th>
+                </tr>
+                  <tr *ngFor = "let p of subjectsSemRti[sem]"  style="width: 100%;text-align:center">
+                    <td>
+                      {{p.name}}
+                    </td>
+                    <td>
+                      <button class="btn btn-primary" style="background-color: indigo;" (click) = "goTo(p)"> See this subjects page </button>
+                      <span style="background-color: transparent;">&nbsp;</span>
+                        <button *ngIf = "studentLoged" class="btn btn-primary" (click) = "sub(p)"> Subscribe to this subject! </button>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <br/>
+        </div>
+    </div>
+  </div>
+
+  <div *ngIf="other">
+    <div class="row" style="width: 100%;">
+      <h1 style="text-align: center;font-size: 30px;">Other Departments subjects</h1>
+    </div>
+    <br/>
+      <br/>
+    <div *ngFor = "let sem of semes">
+        <div *ngIf = "checkIfSubjectsOther(sem)">
+          <div class="row" style="width: 100%;">
+            <h1 style="text-align: center;font-size: 30px;">Semester {{sem + 1}}</h1>
+          </div>
+          <div class="row" style="width: 100%;">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <table class="table table-dark" style="width: 100%;">
+                <tr>
+                  <th style="width: 50%;text-align:center">Name:</th>
+                  <th style="width: 50%;text-align:center">Subject page:</th>
+                </tr>
+                  <tr *ngFor = "let p of subjectsSemOther[sem]"  style="width: 100%;text-align:center">
+                    <td>
+                      {{p.name}}
+                    </td>
+                    <td>
+                      <button class="btn btn-primary" style="background-color: indigo;" (click) = "goTo(p)"> See this subjects page </button>
+                      <span style="background-color: transparent;">&nbsp;</span>
+                        <button *ngIf = "studentLoged" class="btn btn-primary" (click) = "sub(p)"> Subscribe to this subject! </button>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <br/>
+        </div>
+    </div>
+  </div>
+
+  </div>
+

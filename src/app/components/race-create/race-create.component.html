@@ -1,0 +1,82 @@
+<div class="container">
+  <br/>
+  <br/>
+  <br/>
+  <h1 style="font-size: 40px;text-align: center;">Create your event!</h1>
+  <br/>
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <form [formGroup]="raceForm">
+      <table class="table table-dark" stlye="width:100%">
+        <tr>
+          <td>Race name:</td>
+          <td><input type="text" class="userInput" name="registerForm.name" placeholder="Race name"
+            formControlName="name" autofocus="autofocus" required /></td>
+        </tr>
+        <tr>
+          <td>Location:</td>
+          <td><input type="text" class="userInput" name="registerForm.location" placeholder="Ex. City, Country"
+            formControlName="location" required /></td>
+        </tr>
+        <tr>
+          <td colspan = '2' style="width: 100%;">
+            Description:
+            <textarea name="registerForm.description" placeholder="Enter your description here"
+            formControlName="description" style="width: 100%;height:100px;color:white">
+
+            </textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td><input type="text" class="userInput" name="registerForm.address" placeholder="Address of the start of the race"
+            formControlName="address"  required /></td>
+        </tr>
+        <tr>
+          <td>Price:</td>
+          <td><input type="text" class="userInput" name="registerForm.price" placeholder="Price for participation"
+            formControlName="price"  /></td>
+        </tr>
+        <tr>
+          <td colspan='2' style="width: 100%; text-align: left;font-size: 20px">
+            Date: &nbsp; &nbsp; &nbsp; &nbsp;
+            <mat-form-field style="color: white;width: 100%;">
+
+              <input matInput [matDatepicker]="picker" placeholder=" Enter the date of your race"
+              formControlName="date" style="color: white;width: 100%;">
+                <mat-datepicker-toggle matSuffix [for]="picker" style="color: white;width: 50%;"></mat-datepicker-toggle>
+                <mat-datepicker #picker style="color: white;width: 50%;"></mat-datepicker>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Upload photo:</td>
+          <td><input type="file" (change) = "onFileSelected($event)" #filePicker></td>
+        </tr>
+
+
+        <tr>
+          <td colspan="2" style="width:100% ;text-align: center;">
+            <button type="submit" class="btn btn-primary" style="width:40%;text-align: center;" (click)="createRace()">
+            Create race!
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="showErrorMessage">
+          <td colspan="2" style="width:100% ;text-align: center;background-color: white;color: red;">
+            Please enter all the required fields!
+          </td>
+        </tr>
+      </table>
+    </form>
+    </div>
+    <div class="col-md-2"></div>
+
+</div>
+
+</div>

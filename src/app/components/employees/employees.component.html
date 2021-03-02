@@ -1,0 +1,30 @@
+<br/>
+<div class="container" style="justify-content: center;">
+  <br/>
+    <h1 style="font-size: 40px;text-align:center"> Employees</h1>
+    <br/>
+    <br/>
+    <div *ngFor = "let tp of employees" style="text-align: center;">
+      <div class="row">
+      <div class= "col-md-3"></div>
+      <div class= "col-md-6">
+        <span class="card" style="width:100%;background-color:black">
+          <img class="card-imgtop" src={{getPhoto(tp.imagePath)}} alt="Card image">
+          <div class="card-body">
+            <h1 class="cardtitle">{{tp.firstname}} {{tp.lastname}}</h1>
+            <p class="cardtext"> {{tp.title}} </p>
+            <a (click) = 'empPage(tp)' class="btn btn-primary">See Profile</a>
+          </div>
+        </span>
+      </div>
+        <div class= "col-md-3"></div>
+      </div>
+    <br>
+    <hr style="width:100%;text-align:left;margin-left:0;border-color: blue;">
+    <br>
+    </div>
+
+</div>
+
+
+

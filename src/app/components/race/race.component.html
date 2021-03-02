@@ -1,0 +1,50 @@
+<div *ngIf="race!=null" class="container">
+  <br/>
+  <br/>
+  <br/>
+  <h1 style="font-size: 40px;text-align: center;">{{race.name}}</h1>
+  <h1 style="font-size: 20px;text-align: center;"><i>By {{race.organizer}}</i></h1>
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <img src = "{{race.imagePath}}" style="max-width: 100%;">
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div class="row" style="font-size: 20px;">
+    <hr style="width:100%;text-align:left;margin-left:0;color: red;height:5px">
+    Name: {{race.name}}
+    <hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+    Date: {{getDateFormat(race)}}
+    <hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+    Organizer: {{org?.firstname +" "+ org?.lastname}}
+    <hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+    Address: {{race.address}}, {{race.location}}
+    <hr style="width:100%;text-align:left;margin-left:0;color: rgb(255, 136, 0);height:5px">
+    Price: {{race.price}}
+    <hr style="width:100%;text-align:left;margin-left:0;color: red;height:5px">
+  </div>
+  <br/>
+  <br/>
+  <h1 style="font-size: 40px;text-align: center;">About this race</h1>
+  <br/>
+  <br/>
+  <div class="row" style="font-size: 20px;">
+    {{race.description}}
+  </div>
+  <br/>
+  <hr style="width:100%;text-align:left;margin-left:0;color: red;height:5px">
+  <br/>
+  <br/>
+
+  <script> document.write(getMapURL)</script>
+
+</div>

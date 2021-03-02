@@ -1,0 +1,123 @@
+<div class=background>
+  <div class = "containter">
+    <br/>
+    <br/>
+    <h1 style="text-align: center;font-size: 40px;"> Manage groups</h1>
+    <br/>
+    <br/>
+
+
+    <div class = "row" style="width: 100%;">
+      <div class = "col-md-6" style="text-align: center;">
+        <a class = "btn btn-primary" (click)="setOption(0)"> Create a group </a>
+      </div>
+      <div class="col-md-6" style="text-align: center;">
+        <a class = "btn btn-primary" (click)="setOption(2)"> Delete a group </a>
+      </div>
+
+    </div>
+    <br/>
+    <br/>
+    <div *ngIf = "create">
+      <div class = "row" style="width: 100%;">
+        <h1 style="text-align: center;font-size: 40px;"> Create a group</h1>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <div class = "row" style="width: 100%;">
+
+        <div class="col-md-2" style="text-align: center;">
+
+        </div>
+        <div class="col-md-8" style="text-align: left;color:black">
+        <table class="table table-dark" style="width: 100%;">
+          <tr>
+            <td>Group name:</td>
+            <td>
+              <input type="text" style="color:white; width:100%" [(ngModel)] = "createG.group" placeholder="Ex G1,P2..">
+            </td>
+          </tr>
+          <tr>
+            <td>Subject code:</td>
+            <td><input type="text" style="color:white; width:100%" [(ngModel)] = "createG.code" placeholder="Code of the subject"></td>
+          </tr>
+          <tr>
+            <td>Username of an Employee in this group:</td>
+            <td><input type="text" style="color:white; width:100%" [(ngModel)] = "createG.username"  placeholder="Username of the professor or assistant that holds this class"></td>
+          </tr>
+          <tr>
+            <td>Lecture Time:</td>
+            <td><input type="text" [(ngModel)]="createG.day" style="width: 40%; color:white" placeholder = "Monday, Tuesday.." > at <input type="text" [(ngModel)]="createG.time" style="width: 40%;color:white" placeholder = "HH:MM"></td>
+          </tr>
+          <tr>
+            <td colspan = "2" style="width:100%;text-align: center;">
+              <button class="btn btn-primary" style="background-color: indigo;" (click)="createGroup()">Create this group</button>
+            </td>
+          </tr>
+          <tr *ngIf = "checked">
+            <td colspan = "2" style="width:100%;text-align: center; background-color: white;color:red">
+              Please enter all fields!
+            </td>
+          </tr>
+        </table>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf = "delete">
+      <div class = "row" style="width: 100%;">
+        <h1 style="text-align: center;font-size: 40px;"> Delete a group</h1>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <div class = "row" style="width: 100%;">
+
+        <div class="col-md-2" style="text-align: center;">
+
+        </div>
+        <div class="col-md-8" style="text-align: left;color:black">
+        <table class="table table-dark" style="width: 100%;">
+          <tr>
+            <td>Group name:</td>
+            <td>
+              <input type="text" style="color:white; width:100%" [(ngModel)] = "deleteG.group" placeholder="Ex G1,P2..">
+            </td>
+          </tr>
+          <tr>
+            <td>Subject code:</td>
+            <td><input type="text" style="color:white; width:100%" [(ngModel)] = "deleteG.code" placeholder="Code of the subject"></td>
+          </tr>
+          <tr>
+            <td>Username of an Employee in this group:</td>
+            <td><input type="text" style="color:white; width:100%" [(ngModel)] = "deleteG.username"  placeholder="Username of the professor or assistant that holds this class"></td>
+          </tr>
+          <tr>
+            <td colspan = "2" style="width:100%;text-align: center;">
+              <button class="btn btn-primary" style="background-color: indigo;" (click)="deleteGroup()">Delete this group</button>
+            </td>
+          </tr>
+          <tr *ngIf = "checkedD">
+            <td colspan = "2" style="width:100%;text-align: center; background-color: white;color:red">
+              Please enter all fields!
+            </td>
+          </tr>
+        </table>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  </div>
+
+

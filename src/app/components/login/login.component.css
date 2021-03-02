@@ -1,0 +1,13 @@
+.mycontent-left {
+  border-right: 1px dashed #333;
+}
+
+input[type=text]
+{
+  color:white;
+}
+
+input[type=password]
+{
+  color:white;
+}

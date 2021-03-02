@@ -1,0 +1,166 @@
+
+blur() kada se fokus sa necega napusti.
+
+alert()
+prompt()
+confirm()
+
+
+$().prop(disabled,true); kao val al za atribute koji se ne pisu sa .. = nesto
+
+Ne imenuj atribute istim ID-jevima.
+
+#id .class p
+
+$(document).ready(function()
+{
+
+});
+
+akcije:
+
+.hide()
+.hide("slow") "fast" brmilisekundi fadeIn fadeOut slideDown slideUp toggle toggleFade toggleSlide
+
+.show()
+
+#myAnimation
+{
+	background-color: 
+	height
+	width
+	left = 250px
+	position = absolute
+} 
+
+.animate({ left = '+=250px',opacity:'0.5', height:'+=150px'}, milisekunde trajanja).animate kao jos nesto.
+
+.animate({..},function (){ Sta ide posle });
+
+.mouseleave()
+
+.mouseenter()
+
+1 param getter, 2 param seter
+
+.text("") ubacuje tekst u dati tag skuplja tekst bez tagova
+
+.html ovo se dobija sa sve tagovima
+
+.val
+
+.attr
+
+.css({ : , : })
+
+addClass
+removeClass
+toggleClass
+
+ol, ul
+
+.append(" ")
+.prepend(" ")
+moze i u tabeli
+
+.empty()
+.remove("")
+
+/////////////////////////////////////////////////////////
+VUE
+
+vue create myapp
+npm run serve
+
+.vue fajlovi:
+
+<template>
+<div>
+
+{{ prop.atribut }}
+
+<div v-for ='event in events' :key="event">
+<Event :event='event'/>
+</>
+
+okruzi nesto sa:
+<router-link :to='/eventdetails/+event.id'>
+
+
+
+<style>
+</>
+
+
+<script>
+importi
+
+export default{
+	name:'',
+	components:{...},
+	props:[
+	'event'
+	]
+	data(){
+	return
+	{
+		pisi podatke kao u js
+	}
+	
+	}
+	created()
+	{
+		let id = Number(this.$route.params.id);
+	}
+}
+</>
+
+
+
+router/index.js
+
+importuj komponentu
+
+dodaj putanju i dodaj component: ImeComponente
+path: '/putanja/:id' npr ako se razlikuje po param
+
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
+
+
+
+<div v-for= 'event in events': key="elem">
+
+<route-lint :to '/putanja/ + event.id/>
+<router-link :to='/eventdetails/+event.id'>
+
+
+
+data folder:
+
+export default ime.
+
+data(){return{}
+
+	]
+}
+
+<img :src='/assets/+event.slika'>
+
+
+<button @click='$modal.hide("ime modala")'> 
+
+this.$router.push('ime');
+
+<input type ="text" v-model ="username"> 
+
+
+
+
+
+
+
+
+
+
+

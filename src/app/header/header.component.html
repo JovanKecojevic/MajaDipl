@@ -1,0 +1,121 @@
+<mat-toolbar color="warning">
+  <!--<span><a routerLink='/'>RTI</a></span> -->
+  <div class= "container" style="width: 100%;">
+  <div class= "row" style="justify-content:center;text-align: center;width:100%">
+    <div class = "col-md-8 col-sm-12 col-12" style="justify-content:center;text-align: left;" >
+
+      <a *ngIf="!firstlog" mat=button routerLink='/home' routerLinkActive="mat-accent">HOME</a>
+      &nbsp;&nbsp;
+
+    </div>
+    <div class = "col-md-4 col-sm-12 col-12 desno" style="color:black">
+      <a  *ngIf="! logged" mat=button routerLink='/login' routerLinkActive="mat-accent">LOG IN/REGISTER</a>
+
+      <a  *ngIf="(logged) && (! firstlog)" mat=button routerLink='/password' routerLinkActive="mat-accent">CHANGE PASSWORD</a>
+
+      <a  *ngIf="logged" mat=button routerLink='/login' (click)="logout()">LOG OUT</a>
+    </div>
+  </div>
+  </div>
+
+  </mat-toolbar>
+
+
+<!--
+<mat-toolbar color="primary">
+
+<div class="row" style="width:100">
+
+<span><a routerLink='/'>Home</a></span>
+
+<span class="spacer"></span>
+<ul>
+
+  <li>
+    <a mat=button routerLink='/login' routerLinkActive="mat-accent">LOGIN</a>
+  </li>
+
+  <li>
+    <a mat=button routerLink='/registration' routerLinkActive="mat-accent">REGISTER</a>
+  </li>
+  <li>
+    <a mat=button (click)="service.logOutUser()">LOG OUT</a>
+  </li>
+</ul>
+</div>
+
+
+</mat-toolbar> -->
+
+<!--
+<mat-toolbar color="primary">
+<div class= "container" style="width: 100%;">
+<div class= "row" style="justify-content:center;text-align: center;width:100%">
+  <div class = "col-md-8 col-sm-12 col-12" style="justify-content:center;text-align: left;" >
+    <a *ngIf="(slogged || alogged || elogged) && !firstlog" mat=button routerLink='/login' routerLinkActive="mat-accent">Home</a>
+
+    <a *ngIf="! firstlog" mat=button routerLink='/employees' routerLinkActive="mat-accent">Employees</a>
+
+    <a *ngIf="! firstlog" mat=button routerLink='/science' routerLinkActive="mat-accent">Science</a>
+
+    <a *ngIf="! firstlog" mat=button routerLink='/contact' routerLinkActive="mat-accent">Contact</a>
+
+    <a *ngIf="! firstlog" mat=button routerLink='/posts' routerLinkActive="mat-accent">Posts</a>
+
+    <div *ngIf="! firstlog" class="dropdown">
+      <a class="dropbtn" style="font-size: 20px;">Studies</a>
+      <div class="dropdown-content">
+        <a *ngIf="! firstlog"mat=button routerLink='/bachelor' routerLinkActive="mat-accent">Bachelor Studies</a>
+        <a *ngIf="! firstlog" mat=button routerLink='/master' routerLinkActive="mat-accent">Master Studies</a>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-4 col-sm-12 col-12">
+    <a  *ngIf="! logged" mat=button routerLink='/login' routerLinkActive="mat-accent">Log in/Register</a>
+
+    <a  *ngIf="(logged) && (! firstlog)" mat=button routerLink='/password' routerLinkActive="mat-accent">Change Password</a>
+
+    <a  *ngIf="logged" mat=button routerLink='/login' (click)="logout()" routerLinkActive="mat-accent">Log out</a>
+  </div>
+</div>
+</div>
+
+</mat-toolbar>
+
+<nav *ngIf="alogged" class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="goTo('admin')">User management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goTo('admin-subject')" >Subject management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goTo('admin-groups')" >Groups management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav *ngIf="elogged && !firstlog" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="goToR('/profile')">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goToR('/subjects')" >Subjects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="goToR('/sub-posts')">Posts</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
