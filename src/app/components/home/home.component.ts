@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectedFile:File;
+  //maja
 
 
   onFileSelected(event)
